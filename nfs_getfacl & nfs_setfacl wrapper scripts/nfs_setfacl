@@ -1,0 +1,38 @@
+#!/bin/perl
+#
+#  nfs_setfacl, wrapper for nfs4_setfacl to translate UID and GID to user and group names.
+#
+$action = $ARGV[0];
+$_ = $ARGV[$#ARGV-1];
+@aces = split /,/;
+$path = $ARGV[$#ARGV];
+$cmd = "nfs4_setfacl ";
+for ( $i=0; $i < $#ARGV-1; $i++)
+{
+   $cmd = $cmd . $ARGV[$i] . " ";
+}
+foreach (@aces)
+{
+  ($type, $scope, $id, $perms) = split /:/;
+  if ($id eq "")
+  {
+    printf("Error no user/group specified\n");
+    exit(1);
+  }
+  if (index($scope,"g") != -1)
+  {
+    $gname = `getent group $id | cut -d: -f3`;
+    chomp($gname);
+    $id = $gname;
+  }
+  if (index($scope,"g") == -1)
+  {
+    $uname = `getent passwd $id | cut -d: -f3`;
+    chomp($uname);
+    $id = $uname;
+  }
+  $cmd = $cmd . sprintf("%s:%s:%s:%s,", $type, $scope, $id, $perms);
+}
+  chop($cmd);
+  $cmd = $cmd . sprintf(" \"%s\"\n", $path);
+  `$cmd`;

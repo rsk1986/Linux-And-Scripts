@@ -1,0 +1,28 @@
+#!/bin/perl
+#
+#  nfs_getfacl, wrapper for nfs4_getfacl to translate UID and GID to user and group names.
+#
+$filename = $ARGV[0];
+open(OUT, "nfs4_getfacl \"$filename\"|");
+while(<OUT>)
+{
+  chomp();
+  ($type, $scope, $id, $perms) = split /:/;
+  $_ = $id;
+  if (/^\d+$/)
+  {
+    if (index($scope,"g") != -1)
+    {
+      $gname = `getent group $id | cut -d: -f1`;
+      chomp($gname);
+      $id = $gname;
+    }
+    if (index($scope,"g") == -1)
+    {
+      $uname = `getent passwd $id | cut -d: -f1`;
+      chomp($uname);
+      $id = $uname;
+    }
+  }
+  printf "%s:%s:%s:%s\n", $type, $scope, $id, $perms;
+}

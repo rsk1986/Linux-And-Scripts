@@ -1,0 +1,10 @@
+From: admin@eICEProd
+To: Datasolutions@astrazeneca.com
+CC: RD_Science_IT_AR@astrazeneca.com, sathiskumar.raju@astrazeneca.com, alfonso.gonzalez1@astrazeneca.com
+Subject: Filemonitor Stopped on entimICE Prod..... Please Check immediately..
+Content-Type: text/plain
+X-Priority: 1 (Highest)
+X-MSMail-Priority: High
+
+File Monitor Stopped on entimICE Prod... Please Check.. URGENT!
+

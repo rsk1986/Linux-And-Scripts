@@ -1,0 +1,10 @@
+From: admin@entimICEProd
+TO: kartheek.anantharam@astrazeneca.com, judith.gonzalez@astrazeneca.com, victorjoel.gonzalez@astrazeneca.com, nafeesunisa.khalilulla@astrazeneca.com, purushothaman.krishnan@astrazeneca.com, daan.nunez@astrazeneca.com, rizwan.shaik@astrazeneca.com, Rohit.Sharma2@astrazeneca.com, vinod.sivakumar@astrazeneca.com, syedzakiahmed.nazir@astrazeneca.com, nikhil.toraskar@astrazeneca.com, swetha.vuppalanchi@astrazeneca.com, nikkithasumanreddy.yasa@astrazeneca.com
+CC: sathiskumar.raju@astrazeneca.com
+Subject: ****ACL running out on setup macro in entimICE Prod****
+Content-Type: text/plain
+X-Priority: 1 (Highest)
+X-MSMail-Priority: High
+
+ACL running out on setup macro in entimICE.. Please Check immediately.. URGENT!
+

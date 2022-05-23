@@ -1,0 +1,1 @@
+https://superuser.com/questions/109780/how-to-speed-up-rsync

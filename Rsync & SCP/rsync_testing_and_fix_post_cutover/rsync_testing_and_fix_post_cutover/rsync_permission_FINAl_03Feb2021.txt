@@ -1,0 +1,70 @@
+<TARGET_FAS_DST_CODE>/bin/resolve_user_id.sh <ICEADMIN>
+returns the uid for <ICEADMIN>
+Use this value in following command where iceadminPD@astrazeneca.net is referenced.
+
+
+
+
+
+=========================
+
+/entimice/filesystem/filesysroot/root/cdar/_qcp/d419
+/entimice/filesystem/filesysroot/root/cdar/_bsrg/d419
+
+
+
+nohup find /entimice/filesystem/filesysroot/root/cdar/_bsrg/d419 -type d -print0| xargs -0 nfs4_setfacl -s "A::OWNER@:RWX,A:fdi:OWNER@:RWX,A::iceadminPD@astrazeneca.net:RWX,A:fdi:iceadminPD@astrazeneca.net:RWX" > /san1/OFS_permission_folder_bsrg_03FEB2021.log 2>&1 &
+
+nohup find /entimice/filesystem/filesysroot/root/cdar/_bsrg/d419 -type f -print0| xargs -0 nfs4_setfacl -s "A::OWNER@:RWX,A::iceadminPD@astrazeneca.net:RWX" > /san1/OFS_permission_file_bsrg_03FEB2021.log 2>&1&
+
+
+nohup find /entimice/filesystem/filesysroot/root/cdar/_qcp/d419 -type d -print0| xargs -0 nfs4_setfacl -s "A::OWNER@:RWX,A:fdi:OWNER@:RWX,A::iceadminPD@astrazeneca.net:RWX,A:fdi:iceadminPD@astrazeneca.net:RWX" > /san1/OFS_permission_folder_qcp_03FEB2021.log 2>&1 &
+
+nohup find /entimice/filesystem/filesysroot/root/cdar/_qcp/d419 -type f -print0| xargs -0 nfs4_setfacl -s "A::OWNER@:RWX,A::iceadminPD@astrazeneca.net:RWX" > /san1/OFS_permission_file_qcp_03FEB2021.log 2>&1&
+
+
+/entimice/filesystem/filesysroot/root/cdar/_qcp/d419
+/entimice/filesystem/filesysroot/root/cdar/_bsrg/d419
+
+====
+
+A:g:aoigroup2PD:rxtncy
+A:g:aoigroup1PD:rxtncy
+A:g:icegroupPD:rxtncy
+
+
+
+find /entimice_mock/test -type d -print0| xargs -0 nfs4_setfacl -s "A::OWNER@:RWX,A:fdi:OWNER@:RWX,A::iceadminPD@astrazeneca.net:RWX,A:fdi:iceadminPD@astrazeneca.net:RWX" 
+
+find /entimice_mock/test -type f -print0| xargs -0 nfs4_setfacl -s "A::OWNER@:RWX,A::iceadminPD@astrazeneca.net:RWX"
+
+
+
+A:g:aoigroup2PD:RX,A:g:aoigroup1PD:RX,A:g:icegroupPD:RX
+
+
+
+find /entimice_mock/test -type d -print0| xargs -0 nfs_setfacl -a "A:g:aoigroup2PD:RX,A:g:aoigroup1PD:RX,A:g:icegroupPD:RX" 
+
+find /entimice_mock/test -type f -print0| xargs -0 nfs_setfacl -R -a "A:g:aoigroup2PD:RX,A:g:aoigroup1PD:RX,A:g:icegroupPD:RX"
+
+
+
+
+=========================
+
+find /entimice_mock/test -type f -print0 -exec nfs_setfacl -a "A:g:aoigroup2PD:RX,A:g:aoigroup1PD:RX,A:g:icegroupPD:RX" {} \;
+
+
+
+find /entimice/filesystem/filesysroot/root/cdar/_bsrg/d419 -type d -print0 -exec nfs_setfacl -a "A:g:aoigroup2PD:RX,A:g:aoigroup1PD:RX,A:g:icegroupPD:RX"  {} \;
+
+find /entimice/filesystem/filesysroot/root/cdar/_bsrg/d419 -type f -print0 -exec nfs_setfacl -a "A:g:aoigroup2PD:RX,A:g:aoigroup1PD:RX,A:g:icegroupPD:RX" {} \;
+ 
+
+find /entimice/filesystem/filesysroot/root/cdar/_qcp/d419 -type d -print0 -exec nfs_setfacl -a "A:g:aoigroup2PD:RX,A:g:aoigroup1PD:RX,A:g:icegroupPD:RX"  {} \;
+
+find /entimice/filesystem/filesysroot/root/cdar/_qcp/d419 -type f -print0 -exec nfs_setfacl -a "A:g:aoigroup2PD:RX,A:g:aoigroup1PD:RX,A:g:icegroupPD:RX" {} \;
+ 
+
+

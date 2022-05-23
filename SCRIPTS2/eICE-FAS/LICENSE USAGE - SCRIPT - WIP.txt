@@ -1,0 +1,88 @@
+[iceadminPP@sesklentfspp03 conf]$ cat license.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<license>
+<id name="Astra Zeneca PREPROD 4.4 License"/>
+<customer id="Astra Zeneca"/>
+<period begin="24.08.2020" end="30.09.2020"/>
+<server type="FileServer" host="sesklentfspp03.astrazeneca.net"/>
+<user concurrent-rcp="200" concurrent-web="200" concurrent-eda="50" concurrent-jreview="50"/>
+</license>
+<signature>
+j2O0hGMG8OiJwaOwM3gYfpsGhMU=
+</signature>
+
+======================
+
+Check in the desktop for the calculation => License Monitor - Session Tracking.xlsx
+
+rcp=200
+web=200
+eda=50
+
+[iceadminPP@seskalentovpp01 ~]$ cat /home/iceadminPP/test2.sql
+SET LINESIZE 32000
+
+
+select xuid, clientid,
+    Case
+        When type = 1 then 'RCP'
+        When type = 2 then 'RAP'
+        When type = 3 then 'SERVER'
+        When type = 4 then 'JREVIEW'
+        When type = 5 then 'WEB_UI'
+        When type = 6 then 'WEB_ACCESS_RUNTIME'
+        When type = 7 then 'EDA'
+        Else 'Unknown'
+    End
+    As clienttype,
+    logintime,
+    TO_TIMESTAMP('1970-01-01 00:00:00.000', 'YYYY-MM-DD hh24:mi:SS.FF3') + numtodsinterval(logintime/1000, 'SECOND') as logintime_cal,
+    lastalive,
+    TO_TIMESTAMP('1970-01-01 00:00:00.000', 'YYYY-MM-DD hh24:mi:SS.FF3') + numtodsinterval(lastalive/1000, 'SECOND') as lastalive_cal
+    From activeclient 
+    where TO_TIMESTAMP('1970-01-01 00:00:00.000', 'YYYY-MM-DD hh24:mi:SS.FF3') + numtodsinterval(logintime/1000, 'SECOND') >= SYSDATE - 1
+    order by logintime desc
+
+
+exit;
+
+
+sqlplus MRAZDAREPP/mrazpp_456@seskalentovpp-SCAN.astrazeneca.net:1521/ENTCPPD @/home/iceadminPP/test2.sql > output.tbl
+
+
+cat output.tbl | sed -n '/64bit Production/,/rows selected/p' | grep -v ^$ | sed 1d | sed '$d' | sed '$d' | grep -v LOGINTIME_CAL | grep -v -- '----------'
+
+cat output.tbl | sed -n '/64bit Production/,/rows selected/p' | grep -v ^$ | sed 1d | sed '$d' | sed '$d' | grep -v LOGINTIME_CAL | grep -v -- '----------' | awk '{ print $2 }' | awk -F'@' '{ print $1","$2 }' | sort
+
+
+cat output.tbl | sed -n '/64bit Production/,/rows selected/p' | grep -v ^$ | sed 1d | sed '$d' | sed '$d' | grep -v LOGINTIME_CAL | grep -v -- '----------' | awk '{ print $2 }' | awk -F'@' '{ print $1","$2 }' | sort | grep -v web
+
+cat output.tbl | sed -n '/64bit Production/,/rows selected/p' | grep -v ^$ | sed 1d | sed '$d' | sed '$d' | grep -v LOGINTIME_CAL | grep -v -- '----------' | awk '{ print $2 }' | awk -F'@' '{ print $1","$2 }' | sort | grep web
+
+
+
+
+[iceadminPP@seskalentovpp01 ~]$ cat tables2 | sed -n '/64bit Production/,/rows selected/p' | grep -v ^$ | sed 1d | sed '$d' | sed '$d' | grep -v LOGINTIME_CAL | grep -v -- '----------' | awk '{ print $2 }' | awk -F'@' '{ print $1","$2 }' | sort | grep web
+autoimportv,web-7cd81dff-50ba-4a42-9220-8cb5cb549db7
+kdgk112,web-5aadbaa4-0ea6-484d-808c-63cd25c68c0c
+kdzn168,web-eca4235b-bef0-4c6a-a022-d76450d25337
+kmqz855,web-98ab52c5-1b2e-485e-b92c-7a3d61852a0b
+kswd861,web-5f92103d-7824-4396-9cc1-4751d4853211
+kvzk359,web-51549d75-b7ad-4522-aae7-8eed29208974
+kwll275,web-33894185-3535-4845-b037-184793fae0c2
+pdb_user,web-fe265808-4ca5-4534-b329-9ef8d481fb7d
+
+
+[iceadminPP@seskalentovpp01 ~]$ cat tables2 | sed -n '/64bit Production/,/rows selected/p' | grep -v ^$ | sed 1d | sed '$d' | sed '$d' | grep -v LOGINTIME_CAL | grep -v -- '----------' | awk '{ print $2 }' | awk -F'@' '{ print $1","$2 }' | sort | grep eda
+admin,eda-24094141-2d62-4cf3-8355-cb264df6cbe5
+admin,eda-2cfe4386-ebc3-403f-be86-afc9b715ab57
+admin,eda-6dc77bce-7661-435e-96c8-5a2b73b0491e
+
+[iceadminPP@seskalentovpp01 ~]$ cat tables2 | sed -n '/64bit Production/,/rows selected/p' | grep -v ^$ | sed 1d | sed '$d' | sed '$d' | grep -v LOGINTIME_CAL | grep -v -- '----------' | awk '{ print $2 }' | awk -F'@' '{ print $1","$2 }' | sort | grep -v web | grep -v eda
+admin,10.84.33.217
+kqlm201,10.84.33.219
+
+
+rcp count as it is...
+web & eda count - search all rcp sessions and if decrease the count by 1 for the first match and then break
+

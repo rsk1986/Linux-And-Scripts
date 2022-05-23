@@ -1,0 +1,10 @@
+From: admin@SFTP-entimICEProd
+To: michal.knap@astrazeneca.com, martyna.wlodarczyk@astrazeneca.com, krzysztof.glabski@astrazeneca.com
+CC: kartheek.anantharam@astrazeneca.com, judith.gonzalez@astrazeneca.com, victorjoel.gonzalez@astrazeneca.com, nafeesunisa.khalilulla@astrazeneca.com, purushothaman.krishnan@astrazeneca.com, daan.nunez@astrazeneca.com, sathiskumar.raju@astrazeneca.com, juanpablo.ramirez@astrazeneca.com, rizwan.shaik@astrazeneca.com, Rohit.Sharma2@astrazeneca.com, vinod.sivakumar@astrazeneca.com, syedzakiahmed.nazir@astrazeneca.com, nikhil.toraskar@astrazeneca.com, swetha.vuppalanchi@astrazeneca.com, nikkithasumanreddy.yasa@astrazeneca.com
+Subject: ****SFTP /Open File System Running Out-of-Space in entimICE Prod****
+Content-Type: text/plain
+X-Priority: 1 (Highest)
+X-MSMail-Priority: High
+
+SFTP /Open has breached the threshold and it is currently at CURR% on entimICE.. Please Check immediately.. URGENT!
+

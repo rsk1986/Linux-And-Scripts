@@ -1,0 +1,21 @@
+
+root/cdar/_bsrg/d419
+root/cdar/_qcp/d419
+
+Source
+/entimice/filesystem/filesysroot/root/cdar/_bsrg/d419
+/entimice/filesystem/filesysroot/root/cdar/_qcp/d419
+
+
+Target: 
+
+/san1/rsync_test/root/cdar/_bsrg/d419
+/san1/rsync_test/root/cdar/_qcp/d419
+
+
+nohup rsync --times --verbose --recursive --human-readable /entimice/filesystem/filesysroot/root/cdar/_bsrg/d419/* /san1/rsync_test/root/cdar/_bsrg/d419 2>&1 > /san1/rsync_testing_src_bsrg.log &
+
+
+nohup rsync --times --verbose --recursive --human-readable /entimice/filesystem/filesysroot/root/cdar/_qcp/d419/* /san1/rsync_test/root/cdar/_qcp/d419 2>&1 > /san1/rsync_testing_src_qcp.log &
+
+

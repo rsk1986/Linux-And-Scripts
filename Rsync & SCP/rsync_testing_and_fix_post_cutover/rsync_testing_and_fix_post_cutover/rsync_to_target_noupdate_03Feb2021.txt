@@ -1,0 +1,30 @@
+
+root/cdar/_bsrg/d419
+root/cdar/_qcp/d419
+
+Source: 
+/entimice_ofs_0707/cdar/_qcp/d419
+/entimice_ofs_0707/cdar/_bsrg/d419
+
+Target: 
+/san1/rsync_test/root/cdar/_qcp/d419
+/san1/rsync_test/root/cdar/_bsrg/d419
+
+/entimice/filesystem/filesysroot/root/cdar/_qcp/d419
+/entimice/filesystem/filesysroot/root/cdar/_bsrg/d419
+
+
+nohup rsync --update --times --verbose --recursive --human-readable /entimice_ofs_0707/cdar/_qcp/d419/* /entimice/filesystem/filesysroot/root/cdar/_qcp/d419 2>&1 > /san1/rsync_testing_target_qcp_noupdate_FINAL_03FEB2021.log &
+
+nohup rsync --update --times --verbose --recursive --human-readable /entimice_ofs_0707/cdar/_bsrg/d419/* /entimice/filesystem/filesysroot/root/cdar/_bsrg/d419 2>&1 >  /san1/rsync_testing_target_bsrg_noupdate_FINAL_03FEB2021.log &
+
+
+
+
+====
+
+[1:23 AM] Sharma, Rohit
+    
+
+find . -type f -mtime -7 -exec ls -l {​​​​​​​​}​​​​​​​​ \;
+
