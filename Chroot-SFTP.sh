@@ -15,10 +15,9 @@ Match Group astrazeneca\icegroupg
 https://www.tecmint.com/restrict-sftp-user-home-directories-using-chroot/ 
 
 
-[knkg195@seskalentmwdv02 ~]$ /opt/quest/bin/vastool list user knkg195
-EMEA\knkg195:VAS:21564016:1696151674::/home/knkg195:/bin/bash 
+[user@server1 ~]$ /opt/quest/bin/vastool list user knkg123
+EMEA\knkg123:VAS:21434306:1696151674::/home/knkg123:/bin/bash 
 
-knkg195 => Infinity@123
 
 
  
