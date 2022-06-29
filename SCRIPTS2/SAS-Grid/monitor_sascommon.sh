@@ -1,7 +1,7 @@
 #! /bin/bash
 
-#mail_id=sathiskumar.raju@astrazeneca.com
-mail_id=INCHRDISASSUPPORT@astrazeneca.com
+#mail_id=sathiskumar.raju@abc.com
+mail_id=INCHRDISASSUPPORT@abc.com
 hs=$(hostname | awk -F'.' '{print $1 }')
 
 curr=`df -h /sascommon | tail -1 | awk '{ print $5}' | sed s'/.$//'`
