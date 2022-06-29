@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# Author - Sathis Kumar Raju - sathiskumar.raju@astrazeneca.com
+# Author - Sathis Kumar Raju 
 # Description - This script will fetch the details(Owner, Group, Permission for Owner/Group/Other Users & Full Path of the file/directory) of all the files and directories under the given directory/file system on Unix Based Operating Systems.
 # The script is tested in Redhat Linux, SunOS, Solaris and AIX
 # 
