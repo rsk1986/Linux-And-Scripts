@@ -1,4 +1,4 @@
-# Author - Sathis Kumar Raju - sathiskumar.raju@astrazeneca.com
+# Author - Sathis Kumar Raju 
 # Description - This script will monitor the status of filemonitor and send alert mail when file monitor service goes down
 
 #!/bin/bash
