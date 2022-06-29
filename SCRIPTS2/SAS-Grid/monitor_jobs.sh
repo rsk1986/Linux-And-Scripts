@@ -4,7 +4,7 @@ rm -f /tmp/monitor_jobs1.tmp /tmp/monitor_jobs2.tmp /tmp/monitor_jobs3.tmp
 touch /tmp/monitor_jobs1.tmp /tmp/monitor_jobs2.tmp /tmp/monitor_jobs3.tmp
 
 #mail_id=sathiskumar.raju@astrazeneca.com
-mail_id=INCHRDISASSUPPORT@astrazeneca.com
+mail_id=INCHRDISASSUPPORT@abc.com
 
 JOBS=`bjobs -u all | sed 1d | sort | awk '{ print $1}' | xargs`
 
