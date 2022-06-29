@@ -1,4 +1,4 @@
-# Author - Sathis Kumar Raju - sathiskumar.raju@astrazeneca.com
+# Author - Sathis Kumar Raju
 # Description - This script will monitor perform the entimICE log files cleanup
 
 #!/bin/bash
