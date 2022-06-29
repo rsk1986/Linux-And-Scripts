@@ -1,7 +1,7 @@
 Debug
 ========
-ssh -v -l sas uspllsasmetdev01
-ssh -vvv -l sas uspllsasmetdev01
+ssh -v -l user1 server01
+ssh -vvv -l user1 server01
    
 
 ssh -E log_file
