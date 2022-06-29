@@ -1,7 +1,7 @@
 #! /bin/bash
 
-#mail_id=sathiskumar.raju@astrazeneca.com
-mail_id=INCHRDISASSUPPORT@astrazeneca.com
+
+mail_id=INCHRDISASSUPPORT@abc.com
 hs=$(hostname | awk -F'.' '{print $1 }')
 
 now=`uptime | tr ',' ' ' | awk '{ print $10 }'`
@@ -118,5 +118,5 @@ echo "Load is normal" >> /tmp/load2.temp
 echo >> /tmp/load2.temp
 echo "=================================================================================" >> /tmp/load2.temp
 #mail -s "Load is Normal - uspllsasgrnprd01 - US Non-Validated SAS GRID Server" $mail_id < /tmp/load2.temp
-#mail -s "Load is Normal - uspllsasgrnprd01 - US Non-Validated SAS GRID Server" -r admin sathiskumar.raju@astrazeneca.com < /tmp/load2.temp
+#mail -s "Load is Normal - uspllsasgrnprd01 - US Non-Validated SAS GRID Server" -r admin sathiskumar.raju@abc.com < /tmp/load2.temp
 fi
