@@ -3,8 +3,8 @@
 sae=`df -h | egrep -i sae | wc -l`
 cdp=`df -h | egrep -i cdp | wc -l`
 
-#mail_id=sathiskumar.raju@astrazeneca.com
-mail_id=INCHRDISASSUPPORT@astrazeneca.com
+#mail_id=sathiskumar.raju@abc.com
+mail_id=INCHRDISASSUPPORT@abc.com
 
 #echo $sae
 #echo $cdp
