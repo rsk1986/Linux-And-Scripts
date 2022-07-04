@@ -1,4 +1,4 @@
-[iceadminPD@sesklentfspd01 ~]$ cat macroPattern.txt
+[admin@server1 ~]$ cat macroPattern.txt
 %ae1
 %ae2
 %ae3
@@ -37,7 +37,7 @@
 
 find a lot of pattern search in tree structure:
 
-date; find /entimice/filesystem/filesysroot/root/cdar -type f -name \*.[Ss][Aa][Ss] -exec egrep -HiE -f $HOME/macroPattern.txt {} \; > $HOME/crtoolkitUsage.txt ; date
+date; find /entimice/filesystem/filesysroot/root/cdar -type f -name \*.[Ss][Aa][Ss] -exec egrep -HiE -f $HOME/macroPattern.txt {} \; > $HOME/files.txt ; date
 
 find all sas files in the tree structure
 
